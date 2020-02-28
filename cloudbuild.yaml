@@ -1,6 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/gradle'
     args: ['build']
+    id: Build
   - name: gcr.io/cloud-builders/docker
     args:
       - build
@@ -10,12 +11,12 @@ steps:
       - '-f'
       - $_DOCKERFILE_NAME
     dir: $_DOCKERFILE_DIR
-    id: Build
+    id: Container Build
   - name: gcr.io/cloud-builders/docker
     args:
       - push
       - '$_IMAGE_NAME:$COMMIT_SHA'
-    id: Push
+    id: Container Push
   - name: gcr.io/cloud-builders/gke-deploy
     args:
       - prepare
