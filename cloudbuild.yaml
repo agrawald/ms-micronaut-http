@@ -1,0 +1,7 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gradle'
+    args: ['build']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/artful-chiller-259423/ms-micronaut-http', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/artful-chiller-259423/ms-micronaut-http']
