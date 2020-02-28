@@ -44,3 +44,19 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: ms-micronaut-http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-micronaut-http-service
+  namespace: default
+  labels:
+    app: ms-micronaut-http
+spec:
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: ms-micronaut-http
+  type: LoadBalancer
