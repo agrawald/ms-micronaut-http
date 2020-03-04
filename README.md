@@ -7,7 +7,8 @@ The POC application to showcase how we can leverage GCP Cloud Build and GKE to t
 
 # configuration
 
-Following environment variable should be initialized with correct values from GCP project and GKE point of view
+Following environment variable should be initialized with correct values from GCP project and GKE point of view, in cloudbuild.yaml or in the Cloud Build console.
+
 ```yaml
   _K8S_LABELS: ''
   _K8S_NAMESPACE: default
